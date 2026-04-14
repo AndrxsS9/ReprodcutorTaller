@@ -1,4 +1,4 @@
-import { useRef, useCallback, useEffect, useState } from 'react';
+import { useRef, useCallback, useEffect, useState, RefObject } from 'react';
 
 interface AudioAnalysis {
   bass: number;
@@ -7,7 +7,7 @@ interface AudioAnalysis {
   average: number;
 }
 
-export function useAudioAnalyzer(audioRef: React.RefObject<HTMLAudioElement>) {
+export function useAudioAnalyzer(audioRef: RefObject<HTMLAudioElement>) {
   const contextRef = useRef<AudioContext | null>(null);
   const analyzerRef = useRef<AnalyserNode | null>(null);
   const sourceRef = useRef<MediaElementAudioSourceNode | null>(null);
